@@ -1,0 +1,61 @@
+.container-fluid {
+    width: 100%;
+    padding: 0px;
+}
+
+.container-login {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+}
+
+.wrap-login {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row-reverse;
+}
+
+.login-form {
+    width: 580px;
+    min-height: 100vh;
+    display: block;
+    background-color: #ffff;
+}
+
+.login-more {
+    width: calc(100% - 580px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login-load-image {
+    background-image: url("../../assets/images/auth/fondo.jpg");
+    background-position-x: 0px;
+}
+
+.card {
+    margin: 0%
+}
+
+label {
+    margin-left: 5px;
+}

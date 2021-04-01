@@ -1,0 +1,75 @@
+<div>
+    <div class="card-body">
+        <div class="col-lg-8 col-md-8 offset-2">
+            <div class="text-center">
+                <span class="title-login">
+            <p>
+              ¡Usa la misma identificación y contraseña de tu <b>APP Coomeva MP</b>!
+            </p>
+          </span>
+            </div>
+        </div>
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-12 pr-1">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-primary" placeholder="Número identificación" formControlName="username">
+                        <!-- <app-form-control-error formControlName="username"></app-form-control-error> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 pr-1">
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-primary" placeholder="Contraseña" formControlName="password">
+                        <!-- <app-form-control-error formControlName="password"></app-form-control-error> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 pr-1">
+                    <div class="form-group d-flex flex-column">
+
+                        <div class="checkbox-fade fade-in-primary">
+                            <label>
+                  <input type="checkbox" name="remember" id="remember" formControlName="remember">
+                  <span class="cr form-control-primary"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                  <span class="title-login">Recordar contraseña</span>
+                </label>
+                        </div>
+
+                        <a href="#" [routerLink]="[ '/auth/forgot-password']">
+                            <span class="title-login"><p>¿No recuerdas tu contraseña?</p></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 pr-1">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-block btn-acept btnlogin">CONTINUAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-1">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-lg btn-block btn-acept btnlogin" [routerLink]="[ '/auth/register']">
+                CREAR UNA CUENTA
+              </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 pr-1">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-lg btn-block btn-cancelar btnlogin" [routerLink]="[ '/dashboard']">CANCELAR</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
