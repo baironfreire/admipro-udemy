@@ -4,6 +4,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { GraphComponent } from './graph/graph.component';
+import { AccountSttingsComponent } from './account-sttings/account-sttings.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent},
       { path: 'progress', component: ProgressComponent},
       { path: 'graph', component: GraphComponent},
+      { path: 'account-settings', component: AccountSttingsComponent},
     ]
   }
 ];

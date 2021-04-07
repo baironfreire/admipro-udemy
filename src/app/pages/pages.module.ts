@@ -11,6 +11,7 @@ import { GraphComponent } from './graph/graph.component';
 import { PagesComponent } from './pages.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { DoughnutGraphComponent } from '../components/doughnut-graph/doughnut-graph.component';
+import { AccountSttingsComponent } from './account-sttings/account-sttings.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { DoughnutGraphComponent } from '../components/doughnut-graph/doughnut-gr
     ProgressComponent,
     GraphComponent,
     IncrementadorComponent,
-    DoughnutGraphComponent
+    DoughnutGraphComponent,
+    AccountSttingsComponent
   ],
   exports: [
     DashboardComponent,

@@ -1,30 +1,44 @@
 <!-- ============================================================== -->
 <!-- Left Sidebar - style you can find in sidebar.scss  -->
 <!-- ============================================================== -->
-<aside class="left-sidebar">
+<aside class="left-sidebar" data-sidebarbg="skin5">
     <!-- Sidebar scroll-->
-    <div class="scroll-sidebar">
+    <div class="scroll-sidebar ps-container ps-theme-default ps-active-y">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav">
-                <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
-                                  class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i
-                                  class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i
-                                  class="mdi mdi-table"></i><span class="hide-menu">Table</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i
-                                  class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
-                                  class="mdi mdi-earth"></i><span class="hide-menu">Map</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i
-                                  class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i
-                                  class="mdi mdi-help-circle"></i><span class="hide-menu">404</span></a></li>
+            <ul id="sidebarnav" class="list-unstyled components">
+                <li class="sidebar-item user-profile">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="#profileSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <img src="assets/images/users/profile.png" alt="">
+                        <span class="hide-menu">Steave Jobs </span>
+                    </a>
+                    <ul id="profileSubmenu" aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> My Profile</i></a></li>
+                        <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> My Balance</i></a></li>
+                        <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Inbox</i></a></li>
+                        <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Account Setting</i></a></li>
+                        <li class="sidebar-item"><a routerLink="/auth" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Logout</i></a></li>
+                    </ul>
+                </li>
+                <li class="nav-devider"></li>
+                <li class="nav-small-cap">PERSONAL</li>
+                <li *ngFor="let menu of _sidebarService.menu">
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" href="#personSubmenu" data-toggle="collapse">
+                        <i [class]="menu.icono"></i>
+                        <span class="hide-menu">{{menu.titulo}} <span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length}}</span></span>
+                    </a>
+                    <ul id="personSubmenu" aria-expanded="true" class="collapse">
+                        <li *ngFor="let submenu of menu.submenu">
+
+                            <a routerLinkActive="activate" [routerLink]="[submenu.url]" class="sidebar-link p-0">
+                                <i class="mdi mdi-home"></i>
+                                <span class="hide-menu"> {{submenu.titulo}} </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
-            <div class="text-center mt-4">
-                <a href="https://wrappixel.com/templates/adminpro" class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Upgrade to Pro</a>
-            </div>
         </nav>
         <!-- End Sidebar navigation -->
     </div>

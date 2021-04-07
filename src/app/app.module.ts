@@ -4,10 +4,14 @@ import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
+import { ServiceModule } from './services/service.module';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { APP_ROUTES } from './app.routes';
+
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { APP_ROUTES } from './app.routes';
     AuthModule,
     FormsModule,
     ChartsModule,
+    ServiceModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
