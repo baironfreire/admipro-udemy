@@ -12,6 +12,8 @@ import { PagesComponent } from './pages.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { DoughnutGraphComponent } from '../components/doughnut-graph/doughnut-graph.component';
 import { AccountSttingsComponent } from './account-sttings/account-sttings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import { AccountSttingsComponent } from './account-sttings/account-sttings.compo
     GraphComponent,
     IncrementadorComponent,
     DoughnutGraphComponent,
-    AccountSttingsComponent
+    AccountSttingsComponent,
+    PromesasComponent,
+    RxjsComponent
   ],
   exports: [
     DashboardComponent,
