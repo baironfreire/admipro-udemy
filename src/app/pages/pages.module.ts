@@ -14,14 +14,17 @@ import { DoughnutGraphComponent } from '../components/doughnut-graph/doughnut-gr
 import { AccountSttingsComponent } from './account-sttings/account-sttings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ServiceModule } from '../services/service.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
-    PagesRoutingModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    PagesRoutingModule,
+    SharedModule,
+    ServiceModule,
   ],
   declarations: [
     PagesComponent,
@@ -32,7 +35,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     DoughnutGraphComponent,
     AccountSttingsComponent,
     PromesasComponent,
-    RxjsComponent
+    RxjsComponent,
   ],
   exports: [
     DashboardComponent,

@@ -8,6 +8,57 @@
     </div>
 
     <div class="card-body">
+        <form [formGroup]="forma" (ngSubmit)="onSubmit();">
+            <!--Nombre-->
+            <div class="form-group m-t-20">
+                <div class="col-xs-12">
+                    <input type="text" class="form-control" placeholder="Ingrese su nombre" formControlName="nombre" name="nombre" />
+                </div>
+                <app-form-control-error formControlName="nombre"></app-form-control-error>
+            </div>
+            <!--Correo-->
+            <div class="form-group m-t-20">
+                <div class="col-xs-12">
+                    <input type="email" class="form-control" placeholder="Ingrese su correo electronico" formControlName="correo" name="correo" />
+                </div>
+                <app-form-control-error formControlName="correo"></app-form-control-error>
+            </div>
+            <!--password-->
+            <div class="form-group m-t-20">
+                <div class="col-xs-12">
+                    <input type="password" class="form-control" placeholder="Ingrese una contraseña" formControlName="password" name="password" />
+                </div>
+                <app-form-control-error formControlName="password"></app-form-control-error>
+            </div>
 
+            <!--confirm password-->
+            <div class="form-group m-t-20">
+                <div class="col-xs-12">
+                    <input type="password" class="form-control" placeholder="Confirme su contraseña" formControlName="confirmpassword" name="confirmpassword" />
+                </div>
+                <app-form-control-error formControlName="confirmpassword"></app-form-control-error>
+            </div>
+
+            <!--codiciones-->
+            <div class="form-group">
+                <input type="checkbox" id="cbox2" [checked]="forma.value.condiciones" formControlName="condiciones">
+                <label for="cbox2">Termino y Condiciones</label>
+                <app-form-control-error formControlName="condiciones"></app-form-control-error>
+            </div>
+
+            <!--Boton registrarme-->
+            <div class="form-group m-t-20">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-info btn-md btn-block text-uppercase">Registrarme</button>
+                </div>
+            </div>
+            <!--Boton registrarme-->
+            <div class="form-group m-b-0">
+                <div class="col-sm-12 text-center">
+                    <p>¿Tienes una cuenta? <a href="javasript:void();" routerLink="/auth" class="">Ingrese ahora</a></p>
+                </div>
+            </div>
+
+        </form>
     </div>
 </div>

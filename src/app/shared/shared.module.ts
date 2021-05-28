@@ -12,6 +12,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
   imports: [
     CommonModule,
     RouterModule,
+    
   ],
   declarations: [
     HeaderComponent,

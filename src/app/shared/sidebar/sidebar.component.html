@@ -17,13 +17,12 @@
                         <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> My Balance</i></a></li>
                         <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Inbox</i></a></li>
                         <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Account Setting</i></a></li>
-                        <li class="sidebar-item"><a routerLink="/auth" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Logout</i></a></li>
+                        <li class="sidebar-item"><a (click)="_userService.logout()" class="sidebar-link p-0 pointer"><i class="mdi mdi-adjust"> Logout</i></a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
-                <li class="nav-small-cap">PERSONAL</li>
-                <li *ngFor="let menu of _sidebarService.menu">
-                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false" href="#personSubmenu" data-toggle="collapse">
+                <li *ngFor="let menu of _sidebarService.menu" class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" aria-expanded="false" href="#personSubmenu" data-toggle="collapse">
                         <i [class]="menu.icono"></i>
                         <span class="hide-menu">{{menu.titulo}} <span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length}}</span></span>
                     </a>

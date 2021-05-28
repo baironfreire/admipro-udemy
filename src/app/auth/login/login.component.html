@@ -4,72 +4,51 @@
             <div class="text-center">
                 <span class="title-login">
             <p>
-              ¡Usa la misma identificación y contraseña de tu <b>APP Coomeva MP</b>!
+              ¡Usa la misma identificación y contraseña de tu <b>APP Factura Ya!!</b>!
             </p>
           </span>
             </div>
         </div>
-        <form (ngSubmit)="onSubmit()">
-            <div class="row">
-                <div class="col-md-12 pr-1">
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-primary" placeholder="Número identificación" formControlName="username">
-                        <!-- <app-form-control-error formControlName="username"></app-form-control-error> -->
-                    </div>
-                </div>
-            </div>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit();">
 
-            <div class="row">
-                <div class="col-md-12 pr-1">
-                    <div class="form-group">
-                        <input type="password" class="form-control form-control-primary" placeholder="Contraseña" formControlName="password">
-                        <!-- <app-form-control-error formControlName="password"></app-form-control-error> -->
+                <!--Correo-->
+                <div class="form-group m-t-20">
+                    <div class="col-xs-12">
+                        <input type="email" class="form-control" placeholder="Ingrese su correo electronico" formControlName="correo" name="correo" />
                     </div>
+                    <app-form-control-error formControlName="correo"></app-form-control-error>
                 </div>
-            </div>
+                <!--password-->
+                <div class="form-group m-t-20">
+                    <div class="col-xs-12">
+                        <input type="password" class="form-control" placeholder="Ingrese una contraseña" formControlName="password" name="password" />
+                    </div>
+                    <app-form-control-error formControlName="password"></app-form-control-error>
+                </div>
 
-            <div class="row">
-                <div class="col-md-12 pr-1">
-                    <div class="form-group d-flex flex-column">
+                <!--recuerdame-->
+                <div class="form-group">
+                    <input type="checkbox" id="cbox2" [checked]="form.value.remember" formControlName="remember">
+                    <label for="cbox2">Recuerdame</label>
+                    <app-form-control-error formControlName="remember"></app-form-control-error>
+                </div>
 
-                        <div class="checkbox-fade fade-in-primary">
-                            <label>
-                  <input type="checkbox" name="remember" id="remember" formControlName="remember">
-                  <span class="cr form-control-primary"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                  <span class="title-login">Recordar contraseña</span>
-                </label>
-                        </div>
+                <!--Boton registrarme-->
+                <div class="form-group m-t-20">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-success btn-md btn-block text-uppercase">Entrar</button>
+                    </div>
+                </div>
+                <!--Boton registrarme-->
+                <div class="form-group m-b-0">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-secondary btn-md btn-block text-uppercase" routerLink="/auth/register">Crear Cuenta</button>
+                    </div>
+                </div>
 
-                        <a href="#" [routerLink]="[ '/auth/forgot-password']">
-                            <span class="title-login"><p>¿No recuerdas tu contraseña?</p></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </form>
+        </div>
 
-            <div class="row">
-                <div class="col-md-12 pr-1">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-lg btn-block btn-acept btnlogin">CONTINUAR</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 pr-1">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-lg btn-block btn-acept btnlogin" [routerLink]="[ '/auth/register']">
-                CREAR UNA CUENTA
-              </button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 pr-1">
-                    <div class="form-group">
-                        <button type="button" class="btn btn-lg btn-block btn-cancelar btnlogin" [routerLink]="[ '/dashboard']">CANCELAR</button>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
