@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastyModule } from 'ng2-toasty';
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import {  } from './guards/no-auth.guard';
 
 import {
   SettingsService, SharedService, 
   SidebarService, HelperService, 
   UserService, AuthGuard , HttpService,
-  AlertService, LocalStorageService
+  AlertService, LocalStorageService, NoAuthGuard
 } from './service.index'
 
 
@@ -30,6 +31,7 @@ import {
     HelperService,
     UserService,
     AuthGuard,
+    NoAuthGuard,
     HttpService,
     AlertService,
     LocalStorageService,

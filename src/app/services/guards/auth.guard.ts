@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from '../user/user.service';
+import { LocalStorageService } from '../shared/loca-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +10,17 @@ import { UserService } from '../user/user.service';
 export class AuthGuard implements CanActivate {
 
   constructor(private _userService: UserService,
+    private _storage: LocalStorageService,
     private _router: Router){
 
   }
-  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(){
     const isLogin = this._userService.isLogin();
-    if (!isLogin){
+    console.log('islogin', isLogin);
+    if(!isLogin){
       this._router.navigate(['/auth']);
-    }else{
-     
-      return isLogin;
     }
+    return isLogin;
+    
   }
 }

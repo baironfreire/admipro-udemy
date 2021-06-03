@@ -22,20 +22,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.buildForm(this.formBuilder);
-    this._userService.isRemember().then(
-      (data) => {
-        if (data.ok) {
-          this.form.get('correo').patchValue(data.email);
-          this.form.get('remember').patchValue(data.ok);
+ 
+        if (this._userService.isRemember()) {
+          this.form.get('correo').patchValue(this._userService.getEmail());
+          this.form.get('remember').patchValue(this._userService.isRemember());
         }
-      }
-    ).catch((e) => {
-      this._alertService.open({
-        title: e.type,
-        text: e.message,
-        type: e.type
-      });
-    })
+   
   }
 
   private buildForm(formBuilder: FormBuilder): FormGroup {
@@ -47,15 +39,15 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    console.log('forma', this.form);
+  
     if(!this.form.validate()){ return;}
 
-    let usuario = new Usuario(this.form.get('correo').value, this.form.get('password').value);
+    let usuario = new Usuario(null, this.form.get('correo').value, this.form.get('password').value);
     this._userService.login(usuario, {
       success: (response: ILogin) => {
         if(response.ok){
-          this._userService.setSession(response).then(
-            (isTrue) => {
+          this._userService.saveSession(response).then(
+            (isTrue: boolean) => {
               if(isTrue){
                 this._userService.remember(response, this.form.get('remember').value).then(
                   (isSave) => {
@@ -66,6 +58,7 @@ export class LoginComponent implements OnInit {
             }
           ).catch((e) => {
             if(e){
+              console.log('Error => ', e);
               this._alertService.open({
                 title: e.type,
                 text: e.message,
@@ -75,8 +68,9 @@ export class LoginComponent implements OnInit {
           });
         }
       },
-      error: (e: any, util: ErrorUtil) => {       
+      error: (e: any) => {       
         if(e){
+          console.log('Error => ', e.errors);
           this._alertService.open({
             title: e.type,
             text: e.message,
