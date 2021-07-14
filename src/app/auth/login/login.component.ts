@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.form = this.buildForm(this.formBuilder);
  
         if (this._userService.isRemember()) {
-          this.form.get('correo').patchValue(this._userService.getEmail());
+          this.form.get('correo').patchValue(this._userService._email);
           this.form.get('remember').patchValue(this._userService.isRemember());
         }
    

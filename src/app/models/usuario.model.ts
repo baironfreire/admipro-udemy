@@ -7,4 +7,5 @@ export class Usuario {
         public role?: string,
         public _id?: string
     ) {}
+
 }

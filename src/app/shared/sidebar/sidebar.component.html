@@ -8,12 +8,12 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="list-unstyled components">
                 <li class="sidebar-item user-profile">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="#profileSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <img src="assets/images/users/profile.png" alt="">
-                        <span class="hide-menu">Steave Jobs </span>
+                    <a class="sidebar-link has-arrow waves-effect waves-dark d-flex" href="#profileSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <img [src]="user.img | image " alt="user">
+                        <span class="hide-menu">{{user.nombre}}</span>
                     </a>
                     <ul id="profileSubmenu" aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> My Profile</i></a></li>
+                        <li class="sidebar-item"><a routerLinkActive="activate" routerLink="/profile" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Mi Perfil</i></a></li>
                         <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> My Balance</i></a></li>
                         <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Inbox</i></a></li>
                         <li class="sidebar-item"><a href="javasript:void()" class="sidebar-link p-0"><i class="mdi mdi-adjust"> Account Setting</i></a></li>

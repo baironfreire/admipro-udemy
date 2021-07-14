@@ -6,7 +6,9 @@ export const environment = {
   production: false,
   apiv1: {
     login: api + 'login',
-    usuario: api + 'usuario'
+    usuario: api + 'usuario',
+    img: api + 'img',
+    upload: api + 'upload/{type}/{id}',
   }
 };
 

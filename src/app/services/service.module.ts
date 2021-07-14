@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastyModule } from 'ng2-toasty';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import {  } from './guards/no-auth.guard';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import {
   SettingsService, SharedService, 
   SidebarService, HelperService, 
   UserService, AuthGuard , HttpService,
-  AlertService, LocalStorageService, NoAuthGuard
+  AlertService, LocalStorageService, NoAuthGuard,
+  AuthInterceptorsService, UploadFileService
 } from './service.index'
 
 
@@ -20,11 +22,13 @@ import {
     HttpClientModule,
     ToastyModule.forRoot(),
     StorageServiceModule,
+    FileUploadModule,
     
     
   ],
   declarations: [],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorsService, multi: true},
     SettingsService,
     SharedService,
     SidebarService,
@@ -35,9 +39,11 @@ import {
     HttpService,
     AlertService,
     LocalStorageService,
+    UploadFileService,
   ],
   exports:[
-    ToastyModule
+    ToastyModule,
+    FileUploadModule,
   ]
 })
 export class ServiceModule { }

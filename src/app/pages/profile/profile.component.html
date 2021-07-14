@@ -1,0 +1,97 @@
+<div class="row animated fadeIn">
+    <div class="col-7">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+                <h4 class="card-title">Perfil Usuario</h4>
+                <h6 class="card-subtitle">{{user.nombre}}</h6>
+                <form [formGroup]="form" (ngSubmit)="onSubmit();" class="form p-t-20">
+                    <!-- Nombre de usuario-->
+                    <div class="form-group">
+                        <label for="basic-addon1">Nombre:*</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                  <i class="mdi mdi-account mdi-18px"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Ingrese el nombre del usuario" formControlName="username">
+                            <app-form-control-error formControlName="username"></app-form-control-error>
+                        </div>
+                    </div>
+
+                    <!-- Correo Electrónico-->
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:*</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                <i class="mdi mdi-email mdi-18px"></i>
+                              </span>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Ingrese el correo electrónico del usuario" formControlName="email">
+                            <app-form-control-error formControlName="email"></app-form-control-error>
+                        </div>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                          <i class="mdi mdi-content-save mdi-18px"></i>
+                          Guardar
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+                <h4 class="card-title">Fotografia del usuario</h4>
+                <h6 class="card-subtitle">{{user.nombre}}</h6>
+                <form [formGroup]="form" (ngSubmit)="onSubmit();" class="form p-t-20">
+
+                    <!-- Mostrar Foto -->
+                    <div class="card-body  shadow-lg p-3 mb-5 bg-white rounded" align="center">
+                        <img *ngIf="!imgTemp" [src]="user.img | image " class="card-img-top w150" alt="...">
+                        <img *ngIf="imgTemp" [src]="imgTemp" class="card-img-top w150" alt="...">
+                        <div class="row p-2 d-flex flex-column">
+                            <span><strong>{{imgUpload?.name}}</strong></span>
+                            <span nowrap>{{ imgUpload?.size/1024/1024 | number:'.2' }} MB</span>
+                            <!-- <div>
+                                <div class="progress" style="margin-bottom: 0;">
+                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': 30 + '%' }">{{30}}%</div>
+                                </div>
+                            </div> -->
+
+                            <button type="button" class="btn btn-danger btn-sm">
+                                <span class="fa fa-trash"></span> Eliminar
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <!-- Subir Foto -->
+                    <div class="form-group">
+                        <label for="file">Foto:*</label>
+                        <input type="file" class="form-control-file" id="file" (change)="imageSelected($event.target.files[0])">
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="form-group">
+
+                        <button type="button" class="btn btn-primary btn-block" (click)="imagenChange()" [disabled]="!imgUpload">
+                          <i class="mdi mdi-content-save mdi-18px"></i>
+                          Actualizar Foto
+                        </button>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

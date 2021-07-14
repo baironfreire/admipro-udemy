@@ -1,3 +1,5 @@
+export { UploadFileService } from './shared/upload-file.service';
+export { AuthInterceptorsService } from './interceptors/auth-interceptors.service';
 export { NoAuthGuard } from './guards/no-auth.guard';
 export { AuthGuard } from './guards/auth.guard';
 export { LocalStorageService } from './shared/loca-storage.service';
@@ -9,6 +11,8 @@ export { UserService } from './user/user.service';
 export { HttpService } from './http/http.service';
 export { ToastyService } from 'ng2-toasty';
 export { AlertService} from './shared/alert.service';
+
+
 
 
 
